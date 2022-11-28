@@ -32,6 +32,9 @@ const App = () => {
 
   const[filter, setFilter] = useState('All')
 
+  const [ligtMode, setLightMode] = React.useState(false)
+
+
 
   useEffect(()=>{
     localStorage.setItem('todoActivities', JSON.stringify(todoActivities))
@@ -96,6 +99,7 @@ const newTodoItems = todoActivities.filter(Filtering[filter]).map((todoact)=> (
                                     completedToggler = {checkComplete}
                                     deletesTodos = {deleteTodo }
                                     editingTodos = {EditTodo}
+                                    lightMode = {ligtMode}
                                   />
                             ))
 
@@ -106,21 +110,25 @@ const filterTodos = Filter_Todos.map((name)=>(
                     pressed = {name === filter}
        />
 ))
-const todoAmount = newTodoItems.length > 1 || newTodoItems.length === 0 ? 'Todo Items' : 'Todo Item'
+const todoAmount = newTodoItems.length > 1 || newTodoItems.length === 0 ? ' Items' : ' Item'
 const todoCounter = `${newTodoItems.length}  ${todoAmount} available`
 
 
 
 
 
-
+ function toggleLightMode (){
+  setLightMode(prevLight => !prevLight)
+ }
 
   return (
     <div  className='App'>
 
         <div>
            <Form  
-            newTodo = {newTodo}            
+            newTodo = {newTodo} 
+            lightMode = {ligtMode} 
+            toggleLightMode =  {toggleLightMode}        
           />       
         </div>
       <div className='body__main'>

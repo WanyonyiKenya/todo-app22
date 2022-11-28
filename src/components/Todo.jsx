@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function Todo({todoName,completed,id,completedToggler,deletesTodos,editingTodos}) {
+function Todo({todoName,completed,id,completedToggler,deletesTodos,editingTodos,lightMode}) {
 
     const[editTodo, setEditTodo] = useState(false)
     const[newTodoName, setNewTodoName]= useState('')
@@ -33,6 +33,8 @@ function Todo({todoName,completed,id,completedToggler,deletesTodos,editingTodos}
     )
 
     const newTodoList = (
+        <div className= {lightMode ? 'light' : ''}>
+
         <div className='Todo'>
            <div className='todo__input'>
                 <input
@@ -40,9 +42,10 @@ function Todo({todoName,completed,id,completedToggler,deletesTodos,editingTodos}
                          type= 'checkbox' 
                          defaultChecked = {completed}
                          onChange = {()=>completedToggler(id)}
-                         className = 'radio__btn'
+                         className = {completed ? 'completed': ''}
                          />
-                <label className='todoName' htmlFor={id}>
+                <label className = {completed ? 'completed': ''}
+ htmlFor={id}>
                     {todoName}
                 </label>
             </div>
@@ -58,6 +61,7 @@ function Todo({todoName,completed,id,completedToggler,deletesTodos,editingTodos}
                         Delete
                 </button>
              </div>
+        </div>
         </div>
     )
 

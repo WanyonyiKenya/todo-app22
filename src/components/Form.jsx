@@ -5,7 +5,7 @@ import background from '../Assets/bg-desktop-dark.jpg'
 
 
 
-const Form = ({newTodo}) => {
+const Form = ({newTodo, lightMode,toggleLightMode}) => {
 
   const[todoName, setTodoName]= useState('')
 
@@ -21,9 +21,22 @@ const Form = ({newTodo}) => {
   }
 
   return (
+    <nav className= {lightMode ? 'light' : ''}>
     <div className='form__style'  style={{backgroundImage:`url(${background})` }}>
     <header>
-      <h1>My to do List</h1> 
+      <h1>To Do</h1> 
+        <div 
+                className="toggler" 
+        >
+                <p className="toggler--dark">Dark</p>
+                <div 
+                    className="toggler--slider"
+                    onClick={toggleLightMode}
+                >
+                    <div className="toggler--slider--circle"></div>
+                </div>
+                <p className="toggler--light">Light</p>
+        </div>
     </header>
      <form >
        <input
@@ -42,6 +55,7 @@ const Form = ({newTodo}) => {
 
     </form>
    </div>
+   </nav>
   )
 }
 

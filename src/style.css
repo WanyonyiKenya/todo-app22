@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: aqua;
     
   }
   body {
@@ -17,10 +18,9 @@
     background-color: hsl(237, 14%, 26%);
     
   }
-  .form__style{
+  /* .form__style{
    background:linear-gradient hsl(192, 100%, 67%);
-
-  }
+  } */
   header {
     font-size: 30px;
     color: white;
@@ -65,35 +65,9 @@
     min-width: 30%;
     list-style: none;
   }
- /
-  .todo li {
-    flex: 1;
-  }
+ 
   
-  .trash-btn,
-  .complete-btn {
-    background: #ff6f47;
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-  }
-  .complete-btn {
-    background: rgb(11, 212, 162);
-  }
-  .todo-item {
-    padding: 0rem 0.5rem;
-  }
   
-  .fa-trash,
-  .fa-check {
-    pointer-events: none;
-  }
-  
-  .fall {
-    transform: translateY(10rem) rotateZ(20deg);
-    opacity: 0;
-  }
   
   .completed {
     text-decoration: line-through;
@@ -119,12 +93,15 @@
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(2, 75% 1fr 1fr);
- justify-items: auto;
+  justify-items: auto;
   align-content: space-between;
   list-style: none;
   cursor: pointer;
   border-bottom : yellow 5px solid;
   line-height: 35px;
+}
+.Todo.light{
+  background: #D5D4D8;
 }
 .todo__input{
   font-size: 19px;
@@ -199,7 +176,7 @@ h6{
   border-width: 1px solid teal;
   cursor: pointer;
   color: antiquewhite;
-  background: hsl(233, 14%, 35%);;
+  background: hsl(233, 14%, 35%);
 }
 .name__span:hover{
   background-color: lightskyblue;
@@ -240,35 +217,82 @@ h6{
   }
 
   
-@media screen and (max-width:1024px){
-  .container{
-      width: 86%;
-  }
-  section{
-      margin-top: 6rem;
-  }
+
+
+.toggler {
+  display: flex;
+  align-items: center;
 }
 
+.toggler p {
+  font-size: 0.625rem;
+  font-weight: 600;
+}
+.toggler--slider {
+  width: 25px;
+  height: 13px;
+  background-color: white;
+  border-radius: 2rem;
+  margin-inline: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+  box-sizing: content-box;
+}
+nav.dark .toggler--slider {
+  border-color: black;
+  background-color: #0f040441;
+}
 
-@media screen and (max-width:
-@media screen and (max-width:144opx){
-    .container{
-        width: 86%;
-    }
-    section{
-        margin-top: 6rem;
-    }
+.toggler--slider--circle {
+  height: 13px;
+  width: 13px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+nav.light .toggler--slider--circle {
+  background-color: white;
+}
+
+.toggler--light {
+  color: white;
+}
+
+nav.light .toggler--dark {
+  color: #918E9B;
+}
+
+.toggler--light {
+  color: #D5D4D8;
+}
+
+nav.light .toggler-light {
+  color: #FFFFFF;
+}
+
+nav.light .toggler--slider {
+  justify-content: flex-end;
 }
 
 
 @media screen and (max-width:375px){
     .body__main{
-        width: 90%;
+        width: fit-content;
     }
-    section > h2{
-        margin-bottom: 2rem;
+    .Todo{
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;    }
+    .main__t{
+      grid-template-columns: 1fr;
+      gap: 0.1rem; 
     }
-}){
+    .name__span{
+      grid-template-columns: 1fr;
+
+    }
   .container{
       width: 90%;
   }
