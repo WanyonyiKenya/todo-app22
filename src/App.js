@@ -32,7 +32,7 @@ const App = () => {
 
   const[filter, setFilter] = useState('All')
 
-  const [ligtMode, setLightMode] = React.useState(false)
+  const [lightMode, setLightMode] = React.useState(false)
 
 
 
